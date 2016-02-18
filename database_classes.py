@@ -20,12 +20,13 @@ class StorageSystem:
         for line in self.cleaned_data:
             if line[0].lower() == name.lower() and line[1].lower() == pw.lower():
                 results.append(line)
-                return results
             elif line[0].lower() == name.lower() and line[1].lower() != pw.lower():
                 print("Your password is incorrect. Please try again")
                 break
             else:
                 print("Your username and password was not found. Please try again")
+                break
+            return results
 
     def add_to_file(self):
         with open("database_storage", "a") as outfile:
